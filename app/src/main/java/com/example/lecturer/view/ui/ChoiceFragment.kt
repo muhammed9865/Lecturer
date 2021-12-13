@@ -24,14 +24,14 @@ class ChoiceFragment : Fragment(R.layout.fragment_choice), AdapterView.OnItemSel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_choice, container, false)
 
 
         setYearsSpinner()
         // Inflate the layout for this fragment
-        return binding.root.rootView
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

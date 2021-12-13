@@ -1,4 +1,3 @@
-
 package com.example.lecturer.view.ui
 
 import android.content.Context
@@ -38,10 +37,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        if(!requireArguments().isEmpty){
+        if (!requireArguments().isEmpty) {
             val args = HomeFragmentArgs.fromBundle(
                 requireArguments()
             )
@@ -55,15 +54,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
         viewModel.getSubjectData().observe(this) {
-            if (it != null) {
-                subject = it
-                setUpHomepage()
-            }
+            subject = it
+            setUpHomepage()
+
         }
 
 
         navController = this.findNavController()
-        return binding.root.rootView
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,7 +83,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setUpHomepage() {
-        Log.d("HomeFragment","lol")
         binding.tvSubjectName.text = subject.subjectName
         binding.tvSubjectDescription.text = subject.description
         binding.lecturesCounterTv.text = subject.weeks.size.toString()
@@ -92,8 +90,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     }
 
-    private fun setSharedPref(year: String, subject_name: String){
-        sharedPreferences = activity?.getSharedPreferences(getString(R.string.shared_pref),Context.MODE_PRIVATE) ?: return
+    private fun setSharedPref(year: String, subject_name: String) {
+        sharedPreferences =
+            activity?.getSharedPreferences(getString(R.string.shared_pref), Context.MODE_PRIVATE)
+                ?: return
         with(sharedPreferences!!.edit()) {
             putString(getString(R.string.year), year)
             putString(getString(R.string.subject_name), subject_name)
@@ -102,14 +102,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun getSharedPref() {
-        val getSharedPref = activity?.getSharedPreferences(getString(R.string.shared_pref),Context.MODE_PRIVATE)
+        val getSharedPref =
+            activity?.getSharedPreferences(getString(R.string.shared_pref), Context.MODE_PRIVATE)
         year = getSharedPref!!.getString(getString(R.string.year), "").toString()
         subjectName = getSharedPref.getString(getString(R.string.subject_name), "").toString()
 
-        Log.d(TAG, "$year and $subjectName")
     }
 
-    companion object{
+    companion object {
         private const val TAG = "HomeFragment"
     }
 

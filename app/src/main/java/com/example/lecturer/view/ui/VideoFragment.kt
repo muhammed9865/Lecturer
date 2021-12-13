@@ -40,13 +40,9 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
-        if (!(activity as AppCompatActivity).supportActionBar!!.isShowing){
-            (activity as AppCompatActivity).supportActionBar!!.show()
+    ): View {
 
 
-        }
 
         navController = this.findNavController()
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_video, container, false)
@@ -60,7 +56,7 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
             val args = VideoFragmentArgs.fromBundle(requireArguments())
         }
 
-        return binding.root.rootView
+        return binding.root
     }
 
     override fun onStart() {
