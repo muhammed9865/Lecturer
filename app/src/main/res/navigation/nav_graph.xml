@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/choiceFragment">
+
+    <fragment
+        android:id="@+id/lectures"
+        android:name="com.example.lecturer.view.ui.Lectures"
+        android:label="fragment_lectures"
+        tools:layout="@layout/fragment_lectures" >
+        <action
+            android:id="@+id/action_lectures_to_videoFragment"
+            app:destination="@id/videoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.lecturer.view.ui.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_lectures"
+            app:destination="@id/lectures"
+            app:enterAnim="@anim/slide_to_right"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_quizzesFragment"
+            app:destination="@id/quizzesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_questionsFragment"
+            app:destination="@id/questionsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <argument
+            android:name="year"
+            app:argType="string" />
+        <argument
+            android:name="subject_name"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/quizzesFragment"
+        android:name="com.example.lecturer.view.ui.QuizzesFragment"
+        android:label="fragment_quizzes"
+        tools:layout="@layout/fragment_quizzes" />
+    <fragment
+        android:id="@+id/questionsFragment"
+        android:name="com.example.lecturer.view.ui.QuestionsFragment"
+        android:label="fragment_questions"
+        tools:layout="@layout/fragment_questions" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.lecturer.view.ui.VideoFragment"
+        android:label="VideoFragment" >
+
+        <argument
+            android:name="videoName"
+            app:argType="string" />
+        <argument
+            android:name="videoUrl"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceFragment"
+        android:name="com.example.lecturer.view.ui.ChoiceFragment"
+        android:label="Choose Your Subject"
+        tools:layout="@layout/fragment_choice" >
+        <action
+            android:id="@+id/action_choiceFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

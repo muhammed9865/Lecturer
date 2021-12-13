@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "51430191389",
+    "project_id": "lecturer-be7f0",
+    "storage_bucket": "lecturer-be7f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51430191389:android:5dca28a251ea1425c331f4",
+        "android_client_info": {
+          "package_name": "com.example.lecturer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51430191389-3segm9gttt99359ooqirkuk7atbttg2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3pUwaJtJIIq-OLEUaP3qWx0dRelm1LZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51430191389-3segm9gttt99359ooqirkuk7atbttg2p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

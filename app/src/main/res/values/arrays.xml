@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FIRST YEAR SUBJECTS -->
+    <string-array name="first_year_subjects">
+        <item>Discrete Mathematics</item>
+        <item>Electronics and Physics</item>
+        <item>Programming Introduction</item>
+        <item>IT Introduction</item>
+        <item>IS Introduction</item>
+        <item>Object Oriented Principles</item>
+    </string-array>
+
+
+    <!-- SECOND YEAR SUBJECTS -->
+    <string-array name="second_year_subjects">
+        <item>Operating Systems(1)</item>
+        <item>Computer Architecture and Organization</item>
+        <item>Linear Algebra</item>
+        <item>Web Programming</item>
+        <item>Data Structures and Algorithms</item>
+    </string-array>
+
+
+    <string-array name="third_year_cs_subjects">
+        <item>Artificial Intelligence</item>
+        <item>Assembly Language</item>
+        <item>Operating Systems</item>
+        <item>Etc</item>
+        <item>test</item>
+    </string-array>
+
+
+</resources>

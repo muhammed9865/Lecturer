@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:id="@+id/lecture_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="31dp"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        tools:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Lecture 1 - CPU Scheduling" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/lecture_startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+
+        android:text="@string/watch"
+        app:backgroundTint="#1075A3"
+        app:icon="@drawable/ic_baseline_play_arrow_24"
+        app:iconGravity="textEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/lecture_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lecture_name" />
+</androidx.constraintlayout.widget.ConstraintLayout>

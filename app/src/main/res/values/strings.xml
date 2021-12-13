@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">DatabaseWork</string>
+    <string name="nav_lectures">Lectures</string>
+    <string name="nav_quizzes">Quizzes</string>
+    <string name="nav_q_a">Q/A</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="linear_algebra">Linear Algebra</string>
+    <string name="linear_algebra_description">Linear Algebra is a base of the Artificial intelligence basis along with other mathematical subjects</string>
+    <string name="take_a_quiz">TAKE A QUIZ</string>
+    <string name="home">Home</string>
+    <string name="watch_lectures">WATCH LECTURES</string>
+    <string name="ask_it">ASK IT</string>
+    <string name="have_a_question_about_the_subject">Have a question about the subject?</string>
+    <string name="watch">Watch</string>
+    <string name="data_structure">Data Structures And Algorithms</string>
+    <string name="start">Start</string>
+    <string name="year">Year</string>
+    <string name="subject">Subject</string>
+    <string name="enter">Enter</string>
+
+    <string name="year_1">year_first</string>
+    <string name="year_2">year_second</string>
+    <string name="year_3">year_third</string>
+    <string name="year_4">year_fourth</string>
+    <string name="subject_name">Subject Name</string>
+    <string name="shared_pref">LecturerSharedPref</string>
+
+    <string-array name="years">
+        <item>First Year</item>
+        <item>Second Year</item>
+        <item>Third Year</item>
+        <item>Fourth Year</item>
+    </string-array>
+
+
+</resources>
