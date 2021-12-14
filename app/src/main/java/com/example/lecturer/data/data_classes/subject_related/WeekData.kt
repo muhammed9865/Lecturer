@@ -5,9 +5,11 @@ import android.os.Parcelable
 
 data class WeekData(
     var videoName: String = "",
-    var videoUrl: String = ""
+    var videoUrl: String = "",
+    var videoType: String = ""
 ):Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
     ) {
@@ -16,6 +18,7 @@ data class WeekData(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(videoName)
         parcel.writeString(videoUrl)
+        parcel.writeString(videoType)
     }
 
     override fun describeContents(): Int {

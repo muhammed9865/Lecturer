@@ -36,6 +36,7 @@ class LecturesWeeksAdapter(
             val item = list[position]
 
             holder.itemView.lecture_name.text = item.videoName
+            holder.itemView.video_type_tv.text = item.videoType
             holder.itemView.lecture_startBtn.setOnClickListener {
                 if (onClickListener != null) {
                     onClickListener!!.onWeekClick(

@@ -25,6 +25,7 @@
     <string name="year_4">year_fourth</string>
     <string name="subject_name">Subject Name</string>
     <string name="shared_pref">LecturerSharedPref</string>
+    <string name="change_subject">Change Subject</string>
 
     <string-array name="years">
         <item>First Year</item>

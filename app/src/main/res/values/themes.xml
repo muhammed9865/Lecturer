@@ -16,4 +16,8 @@
     <style name="ToolbarColoredBackArrow" parent="Theme.DatabaseWork">
         <item name="android:textColorSecondary">@color/white</item>
     </style>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginStart">0dp</item>
+    </style>
 </resources>

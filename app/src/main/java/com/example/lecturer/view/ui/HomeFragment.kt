@@ -54,8 +54,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
         viewModel.getSubjectData().observe(this) {
-            subject = it
-            setUpHomepage()
+            if (it != null) {
+                subject = it
+                setUpHomepage()
+            }
 
         }
 

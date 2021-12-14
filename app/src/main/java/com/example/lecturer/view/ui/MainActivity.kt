@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.videoFragment -> {
                     binding.bottomNav.isVisible = false
+                    binding.mainToolbar.visibility = View.GONE
                 }
 
                 R.id.choiceFragment -> {
@@ -78,13 +80,24 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        finish()
-        //super.onBackPressed()
+        if (navController.currentDestination!!.id != R.id.videoFragment) {
+            AlertDialog.Builder(this)
+                .setTitle("Are you sure you want to leave Lecturer?")
+                .setPositiveButton("Yes"){dialog , _ ->
+                    dialog.cancel()
+                    finish()
+                }
+                .setNegativeButton("Stay"){dialog, _ ->
+                    dialog.dismiss()
+                    dialog.cancel()
+                }.show()
+
+        }
+        else{
+          super.onBackPressed()
+        }
     }
 
-    override fun onNavigateUp(): Boolean {
-        return super.onNavigateUp()
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         navController = this.findNavController(R.id.flFragments)
@@ -126,7 +139,10 @@ class MainActivity : AppCompatActivity() {
     private fun changeToolbar(index: Int){
         binding.bottomNav.menu[index].isChecked = true
         binding.bottomNav.isVisible = true
-        supportActionBar!!.title = ""
+        supportActionBar!!.title = "Change Subject"
+        binding.mainToolbar.visibility = View.VISIBLE
     }
+
+
 
 }

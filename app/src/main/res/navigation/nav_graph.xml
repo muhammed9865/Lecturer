@@ -22,7 +22,7 @@
             android:id="@+id/action_homeFragment_to_lectures"
             app:destination="@id/lectures"
             app:enterAnim="@anim/slide_to_right"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+            app:popEnterAnim="@anim/slide_to_right" />
         <action
             android:id="@+id/action_homeFragment_to_quizzesFragment"
             app:destination="@id/quizzesFragment"
@@ -70,6 +70,8 @@
         tools:layout="@layout/fragment_choice" >
         <action
             android:id="@+id/action_choiceFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_to_right"
+            app:popEnterAnim="@anim/slide_to_right" />
     </fragment>
 </navigation>

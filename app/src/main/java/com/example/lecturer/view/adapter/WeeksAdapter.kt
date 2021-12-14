@@ -33,7 +33,8 @@ class WeeksAdapter(private val context: Context) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Week) = with(itemView) {
-            week_number_tv.text = item.weekNumber.toString()
+            val weekNum = "Week ${item.weekNumber}"
+            week_number_tv.text = weekNum
 
             val adapter = LecturesWeeksAdapter(item.weekData)
             rv_week_elements.layoutManager = LinearLayoutManager(this@WeeksAdapter.context)

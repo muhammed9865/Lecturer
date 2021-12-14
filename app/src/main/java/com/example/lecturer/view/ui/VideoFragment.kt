@@ -1,12 +1,10 @@
 package com.example.lecturer.view.ui
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -18,21 +16,21 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.source.dash.DashMediaSource
 import com.google.android.exoplayer2.upstream.DataSource
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import com.google.android.exoplayer2.upstream.DefaultDataSource
 
 
 class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
     private lateinit var binding: FragmentVideoBinding
     private lateinit var simpleExoPlayer: ExoPlayer
     private var playbackPosition: Long = 0
-    private val mp4Url = "https://html5demos.com/assets/dizzy.mp4"
-    private val dashUrl = "https://storage.googleapis.com/wvmedia/clear/vp9/tears/tears_uhd.mpd"
-    private val urlList = listOf(mp4Url to "default", dashUrl to "dash")
     private val dataSourceFactory: DataSource.Factory by lazy {
-        DefaultDataSourceFactory(requireContext(), "exoplayer-sample")
+        DefaultDataSource.Factory(requireContext())
     }
+
+
+    private lateinit var videoUrl: String
+    private lateinit var videoName: String
 
     private lateinit var navController: NavController
 
@@ -44,6 +42,7 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
 
 
 
+
         navController = this.findNavController()
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_video, container, false)
 
@@ -52,12 +51,16 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
         }
 
         // this is how to get the arguments
-        if (requireArguments().isEmpty) {
+        if (!requireArguments().isEmpty) {
             val args = VideoFragmentArgs.fromBundle(requireArguments())
+            videoUrl = args.videoUrl
+            videoName = args.videoName
+            binding.videoToolbar.title = args.videoName
         }
 
         return binding.root
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -65,19 +68,20 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
     }
 
     override fun onStop() {
-        super.onStop()
         releasePlayer()
+        saveVideoTime(playbackPosition)
+        super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
+        playbackPosition = setVideoTime()
         simpleExoPlayer.seekTo(playbackPosition)
     }
 
     private fun initializePlayer() {
         simpleExoPlayer = ExoPlayer.Builder(requireContext()).build()
-        val randomUrl = urlList.random()
-        preparePlayer(randomUrl.first, randomUrl.second)
+        preparePlayer(videoUrl)
         binding.videoPlayer.player = simpleExoPlayer
         simpleExoPlayer.seekTo(playbackPosition)
         simpleExoPlayer.playWhenReady = true
@@ -85,20 +89,22 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
 
     }
 
-    private fun buildMediaSource(uri: Uri, type: String): MediaSource {
-        return if (type == "dash") {
+    private fun buildMediaSource(uri: Uri): MediaSource {
+        /*return if (type == "dash") {
             DashMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(MediaItem.fromUri(uri))
-        } else {
-            ProgressiveMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(MediaItem.fromUri(uri))
-        }
+        } else {*/
+        return ProgressiveMediaSource.Factory(dataSourceFactory)
+            .createMediaSource(MediaItem.fromUri(uri))
+        //  }
     }
 
-    private fun preparePlayer(videoUrl: String, type: String) {
+    private fun preparePlayer(videoUrl: String) {
         val url = Uri.parse(videoUrl)
-        val mediaSource = buildMediaSource(url, type)
-        simpleExoPlayer.prepare(mediaSource)
+        val mediaSource = buildMediaSource(url)
+        simpleExoPlayer.setMediaSource(mediaSource)
+        simpleExoPlayer.prepare()
+
 
     }
 
@@ -110,7 +116,36 @@ class VideoFragment : Fragment(R.layout.fragment_video), Player.Listener {
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
         if (playbackState == Player.STATE_BUFFERING) {
             binding.progressBar.visibility = View.VISIBLE
-        } else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED)
+        } else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED) {
             binding.progressBar.visibility = View.INVISIBLE
+            if (playbackState == Player.STATE_ENDED)
+                saveVideoTime(0)
+        }
+
     }
+
+    private fun saveVideoTime(playbackPosition: Long) {
+        val pref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with(pref.edit()) {
+            putLong("video_time", playbackPosition)
+            putString("video_name", videoName)
+            apply()
+        }
+    }
+
+    private fun setVideoTime():Long {
+        val pref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return 0
+
+        if (pref.getString("video_name", "") == videoName){
+            return pref.getLong("video_time", 0)
+        }
+        return 0
+
+    }
+
+
+    companion object {
+        private const val TAG = "VideoFragment"
+    }
+
 }
