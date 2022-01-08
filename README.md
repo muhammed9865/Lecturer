@@ -21,7 +21,18 @@ In Lecturer, I'm trying to ease the access to my college (Computer Science) lect
  <li>Intuit for resolutions responsiveness</li>
 </ul>
  
- ![image](https://user-images.githubusercontent.com/84887514/148654408-74971730-ef3b-4c85-a8aa-c7a77b3afe26.png)
+ <p float="left">
+<img style="display:" src="https://user-images.githubusercontent.com/84887514/148654550-5858f46c-52f6-4f87-b0d1-e7180d409d33.png" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/84887514/148654698-08c91599-1d17-42e5-8cdd-8a6b2ca8f47d.png" width="200" height="400"/>
+ <img src="https://user-images.githubusercontent.com/84887514/148654789-20f555f6-80e3-4117-8f90-3f22d1d0c67c.png" width="200" height="400"/>
+ <img src="https://user-images.githubusercontent.com/84887514/148654817-c17670ea-02c5-432b-8d15-727fdb0a80f5.png" width="200" height="400"/>
+ </p>
+
+
+ 
+
+
+
 
  
  
