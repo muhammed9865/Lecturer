@@ -3,77 +3,149 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:background="#fff"
-        tools:context="com.example.lecturer.view.ui.ChoiceFragment">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.utils.widget.MotionLabel
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/year"
-            android:textColor="#888"
-            app:layout_constraintBottom_toTopOf="@+id/rl_year_spinner"
-            app:layout_constraintStart_toStartOf="@+id/rl_year_spinner" />
-
-        <RelativeLayout
-            android:id="@+id/rl_year_spinner"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="150dp"
-            android:background="#eee"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.473"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_year"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
+            android:layout_height="match_parent"
+            android:background="@color/secondary_color"
+            android:visibility="visible"
+            tools:visibility="visible">
 
 
-        <androidx.constraintlayout.utils.widget.MotionLabel
-            android:id="@+id/motionLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/subject"
-            android:textColor="#888"
-            app:layout_constraintBottom_toTopOf="@+id/rl_spinner_subject"
-            app:layout_constraintStart_toStartOf="@+id/rl_spinner_subject" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/sign_in"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_50ssp"
+                app:layout_constraintBottom_toTopOf="@+id/signInBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/rl_spinner_subject"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signInBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/login_with_google"
+                android:textColor="#2979FF"
+                app:cornerRadius="@dimen/_20sdp"
+                app:icon="@drawable/googleg_standard_color_18"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_5sdp"
+                app:iconTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/choice_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:background="#eee"
-            app:layout_constraintEnd_toEndOf="@+id/rl_year_spinner"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/rl_year_spinner"
-            app:layout_constraintTop_toBottomOf="@id/rl_year_spinner">
+            android:layout_height="match_parent"
+            android:background="@color/secondary_color"
+            android:padding="10dp"
+            android:visibility="gone"
+            tools:context="com.example.lecturer.view.ui.ChoiceFragment">
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_subject"
+            <androidx.constraintlayout.utils.widget.MotionLabel
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/year"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/rl_year_spinner"
+                app:layout_constraintStart_toStartOf="@+id/rl_year_spinner" />
+
+            <RelativeLayout
+                android:id="@+id/rl_year_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="false"
-                android:focusable="false" />
-        </RelativeLayout>
+                android:layout_height="50dp"
+                android:layout_marginTop="150dp"
+                android:background="#eee"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:layout_width="135dp"
-            android:layout_height="59dp"
-            android:text="@string/enter"
-            android:enabled="false"
-            app:icon="@drawable/ic_baseline_sensor_door_24"
-            app:iconGravity="textEnd"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_spinner_subject" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+
+            <androidx.constraintlayout.utils.widget.MotionLabel
+                android:id="@+id/motionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/subject"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/rl_spinner_subject"
+                app:layout_constraintStart_toStartOf="@+id/rl_spinner_subject" />
+
+            <RelativeLayout
+                android:id="@+id/rl_spinner_subject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:background="#eee"
+                app:layout_constraintEnd_toEndOf="@+id/rl_year_spinner"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/rl_year_spinner"
+                app:layout_constraintTop_toBottomOf="@id/rl_year_spinner">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false" />
+            </RelativeLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/white"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_semibold"
+                android:padding="15dp"
+                android:text="@string/enter"
+                android:textColor="@color/secondary_color"
+                app:icon="@drawable/ic_baseline_sensor_door_24"
+                app:iconGravity="textEnd"
+                app:iconTint="@color/secondary_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rl_spinner_subject" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Choose a subject"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/rl_year_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>

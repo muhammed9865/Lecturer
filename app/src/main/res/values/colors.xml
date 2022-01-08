@@ -11,5 +11,14 @@
     <color name="main_color_bright_grey">#EFEDEA</color>
     <color name="button_color_orange">#DD5000</color>
     <color name="button_color_dark_purple">#32136A</color>
+    <color name="quiz_answers_background_color">#F4EEA5</color>
+
+    <color name="item_quiz_color_one">#177AA6</color>
+    <color name="item_quiz_color_two">#086087</color>
+
+    <color name="primary_color">#3a6cf4</color>
+    <color name="secondary_color">#11162a</color>
+    <color name="home_widgets_bg_color">#fff</color>
+
 
 </resources>

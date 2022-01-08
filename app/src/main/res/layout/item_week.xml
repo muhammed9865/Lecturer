@@ -4,40 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardUseCompatPadding="true"
-    android:elevation="5dp"
-    app:cardCornerRadius="10dp">
+    app:cardElevation="0dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#BFBDC3">
+        >
 
         <TextView
             android:id="@+id/week_number_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:padding="10dp"
-            android:background="@color/button_color_dark_purple"
-            android:textColor="@color/white"
-            android:textSize="20sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:includeFontPadding="false"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="#777"
+            android:textSize="@dimen/_18ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Week 0" />
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
 
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/week_number_tv" >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_week_elements"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/week_number_tv" />
+            android:padding="@dimen/_10sdp"
+            />
+        </androidx.cardview.widget.CardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,7 @@
             android:id="@+id/video_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:backgroundTint="@color/button_color_dark_purple"
-            android:background="@color/button_color_dark_purple"
+            android:background="@color/secondary_color"
             app:title="Name"
             app:titleTextColor="@color/white"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
@@ -21,7 +20,14 @@
             android:id="@+id/videoPlayer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/video_toolbar">
+            android:layout_below="@id/video_toolbar"
+            android:background="@android:color/background_dark"
+            app:use_controller="true"
+            app:hide_on_touch="true"
+            app:show_timeout="5000"
+            app:resize_mode="fit"
+            app:controller_layout_id="@layout/custom_controls"
+            >
 
             <ProgressBar
                 android:id="@+id/progressBar"

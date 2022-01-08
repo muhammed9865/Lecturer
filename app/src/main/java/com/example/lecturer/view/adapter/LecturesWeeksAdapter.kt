@@ -16,6 +16,7 @@ import com.example.lecturer.view.interfaces.WeekInterface
 import com.example.lecturer.view.ui.VideoFragmentArgs
 import com.example.lecturer.view.viewmodel.LecturesViewModel
 import kotlinx.android.synthetic.main.item_week_element.view.*
+import java.util.concurrent.atomic.AtomicInteger
 
 class LecturesWeeksAdapter(
     private var list: List<WeekData>
@@ -34,7 +35,7 @@ class LecturesWeeksAdapter(
 
     override fun onBindViewHolder(holder: LecturesWeeksAdapter.ViewHolder, position: Int) {
             val item = list[position]
-
+            
             holder.itemView.lecture_name.text = item.videoName
             holder.itemView.video_type_tv.text = item.videoType
             holder.itemView.lecture_startBtn.setOnClickListener {

@@ -5,10 +5,15 @@ import android.os.Parcelable
 import com.example.databasework.data.dao.data_classes.subject_related.Quiz
 import com.example.databasework.data.dao.data_classes.subject_related.Week
 
+
 data class Subject(
+
     var description: String = "",
+
     var subjectName: String = "",
+
     var weeks: List<Week> = ArrayList(),
+
     val quizzes: List<Quiz> = ArrayList()
 ):Parcelable {
     constructor(parcel: Parcel) : this(

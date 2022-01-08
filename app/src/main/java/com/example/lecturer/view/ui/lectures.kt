@@ -57,8 +57,9 @@ class Lectures : Fragment(R.layout.fragment_lectures), Player.Listener {
         viewModelFactory = LecturesViewModelFactory(year, subject_name)
         viewModel = ViewModelProvider(this, viewModelFactory)[LecturesViewModel::class.java]
         viewModel.getWeeks().observe(this) {
-            weeks = it
-            Log.d(TAG, "setUpViewModel: $weeks")
+            if (it != null && it != weeks){
+                weeks = it
+            }
             setUpRecyclerViews()
             adapter.submitList(weeks)
             Log.d(TAG, "setUpViewModel: $weeks")

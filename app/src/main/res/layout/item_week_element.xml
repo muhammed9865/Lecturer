@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="5dp"
     app:cardUseCompatPadding="true"
     app:cardElevation="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,27 +18,30 @@
                 android:id="@+id/video_type_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#aaa"
-                android:textSize="20sp"
-                tools:text="Lecture"
-                android:padding="3dp"
-                android:textColor="@color/white"
-
+                android:background="@color/secondary_color"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:padding="@dimen/_3sdp"
                 android:shadowColor="@color/black"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:gravity="center"/>
+                tools:text="Lecture" />
 
             <TextView
                 android:id="@+id/lecture_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:padding="5dp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:padding="@dimen/_5sdp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/lecture_startBtn"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/video_type_tv"
                 tools:text="Lecture 1 - CPU Scheduling"
@@ -48,14 +51,15 @@
                 android:id="@+id/lecture_startBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_margin="@dimen/_8sdp"
                 android:text="@string/watch"
                 app:backgroundTint="#1075A3"
                 app:icon="@drawable/ic_baseline_play_arrow_24"
                 app:iconGravity="textEnd"
                 app:layout_constraintBottom_toBottomOf="@+id/lecture_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lecture_name" />
+                app:layout_constraintTop_toTopOf="@+id/lecture_name"
+                app:layout_constraintVertical_bias="0.55" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

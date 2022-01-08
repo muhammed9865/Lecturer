@@ -43,9 +43,13 @@
     </fragment>
     <fragment
         android:id="@+id/quizzesFragment"
-        android:name="com.example.lecturer.view.ui.QuizzesFragment"
+        android:name="com.example.lecturer.view.ui.QuizzesListFragment"
         android:label="fragment_quizzes"
-        tools:layout="@layout/fragment_quizzes" />
+        tools:layout="@layout/fragment_quizzes" >
+        <action
+            android:id="@+id/action_quizzesFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
     <fragment
         android:id="@+id/questionsFragment"
         android:name="com.example.lecturer.view.ui.QuestionsFragment"
@@ -73,5 +77,27 @@
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_to_right"
             app:popEnterAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.lecturer.view.ui.QuizFragment"
+        android:label="QuizFragment" >
+        <argument
+            android:name="questionsList"
+            app:argType="com.example.databasework.data.dao.data_classes.subject_related.Question[]" />
+        <argument
+            android:name="quizName"
+            app:argType="string" />
+        <argument
+            android:name="quizTime"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.lecturer.view.ui.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_choiceFragment"
+            app:destination="@id/choiceFragment" />
     </fragment>
 </navigation>

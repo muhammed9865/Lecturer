@@ -2,6 +2,8 @@ package com.example.databasework.data.dao.data_classes.subject_related
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 data class Question(
     var questionName: String = "",

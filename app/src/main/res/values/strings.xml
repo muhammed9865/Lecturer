@@ -26,6 +26,8 @@
     <string name="subject_name">Subject Name</string>
     <string name="shared_pref">LecturerSharedPref</string>
     <string name="change_subject">Change Subject</string>
+    <string name="Weeks">Weeks</string>
+    <string name="go_to_course">Go to course</string>
 
     <string-array name="years">
         <item>First Year</item>
@@ -33,6 +35,13 @@
         <item>Third Year</item>
         <item>Fourth Year</item>
     </string-array>
+
+
+    <string name="sha1">C9:E2:7D:0A:35:49:0C:CE:DB:21:B5:9C:2E:67:A6:6A:D6:75:ED:B6</string>
+    <string name="clientId">51430191389-3segm9gttt99359ooqirkuk7atbttg2p.apps.googleusercontent.com</string>
+    <string name="login_with_google">Login with google</string>
+    <string name="sign_in">Sign In</string>
+    <string name="let_us_quiz">Let us QUIZ!</string>
 
 
 </resources>

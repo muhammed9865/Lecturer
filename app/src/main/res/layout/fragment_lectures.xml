@@ -5,7 +5,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EAEAEA"
         tools:context="com.example.lecturer.view.ui.Lectures">
 
         <androidx.recyclerview.widget.RecyclerView

@@ -39,7 +39,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-
+        subject = Subject()
         if (!requireArguments().isEmpty) {
             val args = HomeFragmentArgs.fromBundle(
                 requireArguments()
@@ -54,11 +54,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
         viewModel.getSubjectData().observe(this) {
-            if (it != null) {
-                subject = it
-                setUpHomepage()
-            }
 
+            if (it != null && subject != it) {
+                subject = it
+            }
+            setUpHomepage()
         }
 
 

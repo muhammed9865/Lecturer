@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bot_nav_icon_size">24dp</dimen>
-    <dimen name="subject_name_text_size">35sp</dimen>
+    <dimen name="subject_name_text_size">40sp</dimen>
     <dimen name="subject_descript_tv_size">18sp</dimen>
+    <dimen name="quiz_answers_margin">10dp</dimen>
+    <dimen name="quiz_answers_text_size">18sp</dimen>
 </resources>

@@ -29,5 +29,9 @@
         <item>test</item>
     </string-array>
 
+    <string-array name="account_icon_options">
+        <item>Sign out</item>
+    </string-array>
+
 
 </resources>
