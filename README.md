@@ -19,6 +19,7 @@ In Lecturer, I'm trying to ease the access to my college (Computer Science) lect
  <li>Exoplayer as a Mediaplayer for the lectures/sections</li>
  <li>Material Components</li>
  <li>Intuit for resolutions responsiveness</li>
+ <li>Recyclerviews with ListAdapters</li>
 </ul>
  
  <p float="left">
